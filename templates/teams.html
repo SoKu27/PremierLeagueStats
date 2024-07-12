@@ -1,0 +1,14 @@
+{% extends "index.html" %} {% block content %}
+
+<div class="heading">Stats of {{ team_name }}</div>
+<div class="altpage">
+    
+    <div> Your team scored {{ stats.goals }} goals </div>
+
+    <div>in {{ stats.totalgamesplayed }} games.</div>
+
+    <div>Your team logo is</div>
+    <img src = {{stats.logo}}>
+</div>
+<a href="/"><button class="submitbutton">Go back</button></a>
+{% endblock %}
