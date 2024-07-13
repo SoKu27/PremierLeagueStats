@@ -24,9 +24,11 @@
         </form> -->
         <form method="POST" action="teams">
             <div class="maincontent">
-                <label for="teamname">Enter the name of a team to see their stats</label>
+                <label for="teamname">Enter the name of a team and a year to see their stats in that year</label>
                 <input id="teamname" name="teamname" type="text" placeholder="Enter Team Name" />
+                <input id="season" name="season" type="number" min="1000" max="9999" placeholder="YYYY" />
                 <button class="submitbutton" id="team">Submit</button>
+                
             </div>
             <div class="maincontent">
                 {% if error %} {{ error }} {% endif %}

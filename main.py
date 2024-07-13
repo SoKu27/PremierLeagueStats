@@ -24,8 +24,9 @@ def teams():
     if request.method == 'GET':
         return redirect('/')
     
-    form_data = request.form
-    team_name = form_data["teamname"]
+
+    team_name = request.form["teamname"]
+    season = request.form["season"]
     url = BASE_URL + f"/teams?search={team_name}"
 
     
@@ -36,9 +37,17 @@ def teams():
         errormessage = "Please enter an actual team"
         return render_template("index.html", error=errormessage)
     url2 = BASE_URL + f"/leagues?team={team_id}"
-    leaguestats = requests.get(url2, headers=HEADERS).json()
+    try:
+        leaguestats = requests.get(url2, headers=HEADERS).json()
+    except:
+        errormessage = "An error occured, please try again"
+        return render_template("index.html", error=errormessage)
     league_id = leaguestats["response"][0]["league"]["id"]
-    season = leaguestats["response"][0]["seasons"][0]["year"]
+    startyear = leaguestats["response"][0]["seasons"][1]["start"]
+    print(league_id)
+    print(season)
+    print(startyear)
+
 
     finalstats = requests.get(BASE_URL + "/teams/statistics",headers=HEADERS, params = {
         "league" : league_id,
@@ -49,7 +58,7 @@ def teams():
     totalgamesplayed = finalstats["response"]["fixtures"]["played"]["total"]
     goals = finalstats["response"]["goals"]["for"]["total"]["total"]
     logo = finalstats["response"]["team"]["logo"]
-    return render_template("teams.html", team_name=team_name, stats = {
+    return render_template("teams.html", team_name=team_name, season=season, stats = {
         "totalgamesplayed" : totalgamesplayed,
         "goals" : goals,
         "logo" : logo
