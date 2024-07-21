@@ -17,19 +17,23 @@ body {
     text-align: center;
     color: rgb(0, 0, 0);
     font-size: 4vw;
-    background: linear-gradient(to right, white, red);
-    display: inline;
+    background: radial-gradient(white, rgb(121, 0, 0));
+    display: block;
     padding-left: 1vw;
     padding-right: 1vw;
     position: relative;
-    bottom: 0.5vw;
+    bottom: 0.3vw;
 }
 .maincontent{
     text-align: center;
     color: rgb(0, 0, 0);
-    background: linear-gradient(to right, white, red);
+    background: radial-gradient(rgb(255, 255, 255), rgb(209, 209, 209),rgb(163, 1, 1));
     padding-left: 1vw;
     padding-right: 1vw;
+    padding-bottom: 0.2vw;
+    font-size: 1.5vw;
+    position: relative;
+    bottom: 0.2vw;
 }
 .container{
     position: relative;
@@ -55,6 +59,17 @@ body {
 .altpage{
     font-family: "Mukta";
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 2vw;
+    background: radial-gradient(rgb(255, 255, 255), rgb(209, 209, 209),rgb(163, 1, 1));
+
+}
+.teamheading{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 4vw;
+    display: block;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
 }

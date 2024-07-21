@@ -1,14 +1,18 @@
 {% extends "index.html" %} {% block content %}
 
-<div class="heading">Stats of {{ team_name }}</div>
-<div class="altpage">
-    
-    <div> Your team scored {{ stats.goals }} goals </div>
+<div class="contain">
+    <div class="heading">
+        PremierLeagueStats
+    </div>
+    <div class="altpage">
+        <div class="teamheading">Stats of {{ team_name }}</div>
+        <div> Your team scored {{ stats.goals }} goals </div>
 
-    <div>in {{ stats.totalgamesplayed }} games in {{ season }}</div>
+        <div>in {{ stats.totalgamesplayed }} games in {{ season }}</div>
 
-    <div>Your team logo is </div>
-    <img src = {{stats.logo}}>
+        <div>Your team logo is </div>
+        <img src = {{stats.logo}}>
+    </div>
+    <a href="/"><button class="submitbutton">Go back</button></a>
 </div>
-<a href="/"><button class="submitbutton">Go back</button></a>
 {% endblock %}

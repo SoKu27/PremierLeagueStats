@@ -34,7 +34,7 @@ def teams():
     try:
         team_id = teamstats["response"][0]["team"]["id"]
     except (IndexError, KeyError):
-        errormessage = "Please enter an actual team"
+        errormessage = "An error occured, please try again"
         return render_template("index.html", error=errormessage)
     url2 = BASE_URL + f"/leagues?team={team_id}"
     try:
