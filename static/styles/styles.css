@@ -9,25 +9,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../pics/soccerstatbg.jpg");
+    background-image: url("../pics/PremierLeagueBG.jpg");
     background-size: cover;
     font-family: "Mukta";
   }
 .heading{
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 4vw;
+    background: linear-gradient(to right, white, red);
+    display: inline;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    position: relative;
+    bottom: 0.5vw;
 }
 .maincontent{
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to right, white, red);
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 .container{
     position: relative;
-    background: linear-gradient(to right, #ff0000, #ff4343, #0059ff);
+    background-image: url("../pics/EnglishFlag.jpeg");
     padding: 1vw;
     display: inline;
     margin-top: 13vw;
+    text-align: center;
 }
 #teamname{
     margin-top: 1vw;

@@ -42,20 +42,24 @@ def teams():
     except:
         errormessage = "An error occured, please try again"
         return render_template("index.html", error=errormessage)
-    league_id = leaguestats["response"][0]["league"]["id"]
+    league_id = 39
     startyear = leaguestats["response"][0]["seasons"][1]["start"]
     print(league_id)
     print(season)
     print(startyear)
 
 
-    finalstats = requests.get(BASE_URL + "/teams/statistics",headers=HEADERS, params = {
+    
+    try:
+        finalstats = requests.get(BASE_URL + "/teams/statistics",headers=HEADERS, params = {
         "league" : league_id,
         "season" : season,
         "team" : team_id
     }).json() #without ".json()" this code isn't subscriptable which means that "finalstats" is just a response variable returned by the football api. With ".json" this variable gets converted to a python dictionary
-   
-    totalgamesplayed = finalstats["response"]["fixtures"]["played"]["total"]
+        totalgamesplayed = finalstats["response"]["fixtures"]["played"]["total"]
+    except (IndexError, KeyError):
+        errormessage = "Please enter both a team and a year"
+        return render_template("index.html", error=errormessage)
     goals = finalstats["response"]["goals"]["for"]["total"]["total"]
     logo = finalstats["response"]["team"]["logo"]
     return render_template("teams.html", team_name=team_name, season=season, stats = {
